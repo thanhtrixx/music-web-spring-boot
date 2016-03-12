@@ -1,12 +1,9 @@
 package tri.le.music.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
- * Created by thanh on 3/5/2016.
+ * Created by TriLe on 3/5/2016.
  */
 @Entity
 public class SongEntity {
@@ -17,11 +14,26 @@ public class SongEntity {
 
     private String name;
 
+    @ManyToOne
+    private ArtistEntity artist;
+
+    @ManyToOne
+    private AlbumEntity album;
+
+    private String composer;
+
+    private String genre;
+
     public SongEntity() {
     }
 
     public SongEntity(String name) {
         this.name = name;
+    }
+
+    public SongEntity(String name, String genre) {
+        this.name = name;
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -40,11 +52,35 @@ public class SongEntity {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "SongEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public ArtistEntity getArtist() {
+        return artist;
+    }
+
+    public void setArtist(ArtistEntity artist) {
+        this.artist = artist;
+    }
+
+    public AlbumEntity getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(AlbumEntity album) {
+        this.album = album;
+    }
+
+    public String getComposer() {
+        return composer;
+    }
+
+    public void setComposer(String composer) {
+        this.composer = composer;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

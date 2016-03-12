@@ -10,7 +10,7 @@ import tri.le.music.entity.SongEntity;
 import tri.le.music.repository.SongRepository;
 
 /**
- * Created by thanh on 3/5/2016.
+ * Created by TriLe on 3/5/2016.
  */
 @SpringBootApplication
 public class App {
@@ -24,7 +24,10 @@ public class App {
     @Bean
     public CommandLineRunner demo(SongRepository repository) {
         return (args) -> {
-            // save a couple of customers
+            // save songs
+            repository.save(new SongEntity("Bauer", "TriLe"));
+            repository.save(new SongEntity("Bauer", "Truc"));
+            repository.save(new SongEntity("Bauer"));
             repository.save(new SongEntity("Bauer"));
             repository.save(new SongEntity("O'Brian"));
             repository.save(new SongEntity("Bauer"));

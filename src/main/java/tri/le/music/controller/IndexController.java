@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import tri.le.music.entity.SongEntity;
 import tri.le.music.repository.SongRepository;
 
+import java.util.List;
+
 /**
- * Created by thanh on 3/5/2016.
+ * Created by TriLe on 3/5/2016.
  */
 @RestController
-@RequestMapping(path = "/api/song/")
+@RequestMapping(path = "/api/")
 public class IndexController {
 
     private static final Logger log = LogManager.getLogger(IndexController.class);
@@ -21,9 +23,9 @@ public class IndexController {
     @Autowired
     SongRepository songRepository;
 
-    @RequestMapping(path = "/")
-    public SongEntity index(String name) {
-        SongEntity songEntity = songRepository.findOne(1L);
+    @RequestMapping(path = "/songs")
+    public List<SongEntity> index(String name) {
+        List<SongEntity> songEntity = songRepository.findByNaG("Bauer", "Tri");
         log.info("Song info {}", songEntity);
         return songEntity;
     }
