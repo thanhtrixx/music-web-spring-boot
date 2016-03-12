@@ -1,12 +1,14 @@
 package tri.le.music.entity;
 
+import tri.le.music.entity.base.BaseEntity;
+
 import javax.persistence.*;
 
 /**
  * Created by TriLe on 3/5/2016.
  */
 @Entity
-public class SongEntity {
+public class SongEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,9 +33,9 @@ public class SongEntity {
         this.name = name;
     }
 
-    public SongEntity(String name, String genre) {
+    public SongEntity(String name, AlbumEntity album) {
         this.name = name;
-        this.genre = genre;
+        this.album = album;
     }
 
     public Long getId() {

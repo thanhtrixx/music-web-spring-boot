@@ -2,31 +2,22 @@ package tri.le.music.entity;
 
 import tri.le.music.entity.base.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by TriLe on 3/12/2016.
  */
 @Entity
-public class AlbumEntity extends BaseEntity {
+public class PlaylistEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
-    private String description;
-
-    public AlbumEntity() {
-    }
-
-    public AlbumEntity(String name) {
-        this.name = name;
-    }
+    private String imgUrl;
 
     public Long getId() {
         return id;
@@ -44,11 +35,12 @@ public class AlbumEntity extends BaseEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
+

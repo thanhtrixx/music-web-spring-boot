@@ -1,0 +1,5 @@
+debug: true
+
+spring:
+  jackson:
+    serialization-inclusion: non_null

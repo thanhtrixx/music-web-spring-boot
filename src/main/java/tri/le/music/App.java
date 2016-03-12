@@ -6,7 +6,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import tri.le.music.entity.AlbumEntity;
 import tri.le.music.entity.SongEntity;
+import tri.le.music.repository.AlbumRepository;
 import tri.le.music.repository.SongRepository;
 
 /**
@@ -22,17 +24,26 @@ public class App {
     }
 
     @Bean
-    public CommandLineRunner demo(SongRepository repository) {
+    public CommandLineRunner demo(
+            SongRepository songRepository,
+            AlbumRepository albumRepository
+    ) {
         return (args) -> {
+            // save Album
+            AlbumEntity sauTatCa = new AlbumEntity("Sau Tất Cả");
+            AlbumEntity tamSuVoiNguoiLa = new AlbumEntity("Tâm Sự Với Người Lạ");
+            albumRepository.save(sauTatCa);
+            albumRepository.save(tamSuVoiNguoiLa);
+
+
             // save songs
-            repository.save(new SongEntity("Bauer", "TriLe"));
-            repository.save(new SongEntity("Bauer", "Truc"));
-            repository.save(new SongEntity("Bauer"));
-            repository.save(new SongEntity("Bauer"));
-            repository.save(new SongEntity("O'Brian"));
-            repository.save(new SongEntity("Bauer"));
-            repository.save(new SongEntity("Palmer"));
-            repository.save(new SongEntity("Dessler"));
+            songRepository.save(new SongEntity("Sau Tất Cả", sauTatCa));
+            songRepository.save(new SongEntity("Tâm Sự Với Người Lạ", tamSuVoiNguoiLa));
+            songRepository.save(new SongEntity("Nếu Em Còn Tồn Tại"));
+            songRepository.save(new SongEntity("Khi Người Mình Yêu Khóc"));
+            songRepository.save(new SongEntity("Nếu Ngày Ấy"));
+            songRepository.save(new SongEntity("Tình Yêu Chắp Vá"));
+            songRepository.save(new SongEntity("Anh Sẽ Tốt Mà"));
         };
     }
 }
