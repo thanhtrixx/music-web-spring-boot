@@ -1,12 +1,12 @@
 package tri.le.music.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import tri.le.music.entity.ArtistEntity;
 
 /**
  * Created by TriLe on 3/12/2016.
  */
-@Repository
+@RepositoryRestResource(path = "artist")
 public interface ArtistRepository extends PagingAndSortingRepository<ArtistEntity, Long> {
 }

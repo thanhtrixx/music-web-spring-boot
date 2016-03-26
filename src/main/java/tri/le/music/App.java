@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import tri.le.music.entity.AlbumEntity;
 import tri.le.music.entity.SongEntity;
 import tri.le.music.repository.AlbumRepository;
+import tri.le.music.repository.ArtistRepository;
 import tri.le.music.repository.SongRepository;
 
 /**
@@ -26,7 +27,8 @@ public class App {
     @Bean
     public CommandLineRunner demo(
             SongRepository songRepository,
-            AlbumRepository albumRepository
+            AlbumRepository albumRepository,
+            ArtistRepository artistRepository
     ) {
         return (args) -> {
             // save Album
@@ -34,7 +36,6 @@ public class App {
             AlbumEntity tamSuVoiNguoiLa = new AlbumEntity("Tâm Sự Với Người Lạ");
             albumRepository.save(sauTatCa);
             albumRepository.save(tamSuVoiNguoiLa);
-
 
             // save songs
             songRepository.save(new SongEntity("Sau Tất Cả", sauTatCa));
