@@ -3,7 +3,7 @@ package tri.le.music.entity.base;
 /**
  * Created by TriLe on 3/12/2016.
  */
-public class BaseEntity {
+public class PublicInfoEntity {
 
     private String url;
 

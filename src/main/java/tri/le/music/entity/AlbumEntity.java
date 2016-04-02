@@ -1,6 +1,6 @@
 package tri.le.music.entity;
 
-import tri.le.music.entity.base.BaseEntity;
+import tri.le.music.entity.base.PublicInfoEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
  * Created by TriLe on 3/12/2016.
  */
 @Entity
-public class AlbumEntity extends BaseEntity {
+public class AlbumEntity extends PublicInfoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -7,3 +7,7 @@ spring:
   data:
     rest:
       basePath: /api
+
+app:
+  hash-algorithm: SHA-256
+  hash-secret-key: this-will-change-to-environment-variable
