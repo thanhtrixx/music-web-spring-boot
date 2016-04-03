@@ -130,11 +130,11 @@
             </plugin>
         </plugins>
 
-        <resources>
-            <resource>
-                <directory>src/resource</directory>
-            </resource>
-        </resources>
+        <!--<resources>-->
+        <!--<resource>-->
+        <!--<directory>src/resource</directory>-->
+        <!--</resource>-->
+        <!--</resources>-->
     </build>
 
 

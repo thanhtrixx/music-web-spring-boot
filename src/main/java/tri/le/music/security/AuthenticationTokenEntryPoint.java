@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by TriLe on 2016-04-03.
  */
-public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
+public class AuthenticationTokenEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
