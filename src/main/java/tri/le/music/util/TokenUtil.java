@@ -1,17 +1,22 @@
 package tri.le.music.util;
 
-import java.security.SecureRandom;
+import java.util.UUID;
 
 /**
  * Created by thanh on 2016-04-02.
  */
 public class TokenUtil {
 
+    private static final int TOKEN_SIZE = 36;
+
     public static String generateToke() {
-        SecureRandom random = new SecureRandom();
-        byte bytes[] = new byte[20];
-        random.nextBytes(bytes);
-        String token = bytes.toString();
-        return token;
+        return UUID.randomUUID().toString();
+    }
+
+    public static boolean validate(String token) {
+        if (token != null && token.length() == TOKEN_SIZE)
+            return false;
+
+        return false;
     }
 }

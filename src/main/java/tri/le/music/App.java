@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import tri.le.music.entity.AlbumEntity;
 import tri.le.music.entity.SongEntity;
-import tri.le.music.repository.AlbumRepository;
-import tri.le.music.repository.ArtistRepository;
-import tri.le.music.repository.SongRepository;
+import tri.le.music.entity.TokenEntity;
+import tri.le.music.entity.UserEntity;
+import tri.le.music.repository.*;
 
 /**
  * Created by TriLe on 3/5/2016.
@@ -28,10 +28,12 @@ public class App {
     public CommandLineRunner demo(
             SongRepository songRepository,
             AlbumRepository albumRepository,
-            ArtistRepository artistRepository
+            ArtistRepository artistRepository,
+            UserRepository userRepository,
+            TokenRepositoty tokenRepositoty
     ) {
         return (args) -> {
-            // save Album
+            // save albums
             AlbumEntity sauTatCa = new AlbumEntity("Sau Tất Cả");
             AlbumEntity tamSuVoiNguoiLa = new AlbumEntity("Tâm Sự Với Người Lạ");
             albumRepository.save(sauTatCa);
@@ -45,6 +47,16 @@ public class App {
             songRepository.save(new SongEntity("Nếu Ngày Ấy"));
             songRepository.save(new SongEntity("Tình Yêu Chắp Vá"));
             songRepository.save(new SongEntity("Anh Sẽ Tốt Mà"));
+
+            // save users
+            UserEntity user = UserEntity.getInstance("user1", "user1", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER");
+            UserEntity admin = UserEntity.getInstance("admin", "admin", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER;ADMIN");
+            userRepository.save(user);
+            userRepository.save(admin);
+
+            // save token
+            tokenRepositoty.save(TokenEntity.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
+            tokenRepositoty.save(TokenEntity.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
         };
     }
 }

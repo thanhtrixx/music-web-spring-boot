@@ -1,13 +1,14 @@
 package tri.le.music.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import tri.le.music.util.SecurityUtil;
 
 /**
  * Created by thanh on 2016-04-02.
  */
+@Service
 public class UtilService {
-
 
     @Value("${app.hash-algorithm}")
     private String hashAlgorithm;

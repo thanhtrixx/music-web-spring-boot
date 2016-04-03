@@ -27,7 +27,24 @@ public class UserEntity extends HumanEntity {
 
     private Timestamp lastLogin;
 
+    @Column(nullable = false)
     private String roles;
+
+    public UserEntity() {
+    }
+
+    public static UserEntity getInstance(String username, String email, String hashPass, String roles) {
+        UserEntity user = new UserEntity();
+
+        user.username = username;
+        user.email = email;
+        user.hashPass = hashPass;
+        user.roles = roles;
+        user.createTime = new Timestamp(System.currentTimeMillis());
+
+        return user;
+    }
+
 
     public Long getId() {
         return id;

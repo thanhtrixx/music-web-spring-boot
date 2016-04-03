@@ -2,23 +2,22 @@ package tri.le.music.entity;
 
 import tri.le.music.util.TokenUtil;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by thanh on 2016-04-02.
  */
+@Entity
 public class TokenEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String token;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity owner;
 
     private Timestamp createTime;
