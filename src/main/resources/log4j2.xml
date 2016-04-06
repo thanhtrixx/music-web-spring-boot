@@ -16,6 +16,7 @@
         <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn"/>
         <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn"/>
         <Logger name="org.apache.catalina.startup.DigesterFactory" level="error"/>
+        <Logger name="org.springframework.boot.context.web" level="warn"/>
 
         <Root level="info">
             <AppenderRef ref="Console"/>

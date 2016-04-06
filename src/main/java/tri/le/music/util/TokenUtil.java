@@ -15,7 +15,7 @@ public class TokenUtil {
 
     public static boolean validate(String token) {
         if (token != null && token.length() == TOKEN_SIZE)
-            return false;
+            return true;
 
         return false;
     }

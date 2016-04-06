@@ -41,7 +41,7 @@ public class AuthService implements UserDetailsService {
     public UserDetails loadUserByToken(String token) {
         TokenEntity tokenEntity = tokenRepositoty.findByToken(token);
 
-        if (token == null)
+        if (tokenEntity == null)
             return null;
 
         return getUserDetails(tokenEntity.getOwner());

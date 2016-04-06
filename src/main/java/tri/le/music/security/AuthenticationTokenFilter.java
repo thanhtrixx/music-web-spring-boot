@@ -3,9 +3,9 @@ package tri.le.music.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import tri.le.music.service.AuthService;
@@ -37,13 +37,13 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
         if (TokenUtil.validate(token)) {
             // determine the user based on the (already validated) token
             UserDetails userDetails = authService.loadUserByToken(token);
-            // build an Authentication object with the user's info
-            UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(userDetails.getUsername(), token);
 
-            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-            // set the authentication into the SecurityContext
-            SecurityContextHolder.getContext().setAuthentication(authManager.authenticate(authentication));
+            if (userDetails != null) {
+
+                Authentication authentication = new UsernamePasswordAuthenticationToken(token, userDetails, userDetails.getAuthorities()); //this.authenticationProvider.authenticate(token);
+                // set the authentication into the SecurityContext
+                SecurityContextHolder.getContext().setAuthentication(authManager.authenticate(authentication));
+            }
         }
         // next the filter chain
         filterChain.doFilter(request, response);

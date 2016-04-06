@@ -29,6 +29,7 @@ public class TokenEntity {
         TokenEntity token = new TokenEntity();
 
         token.token = TokenUtil.generateToke();
+        token.owner = owner;
         long currentMs = System.currentTimeMillis();
         token.createTime = new Timestamp(currentMs);
         token.exprireTime = new Timestamp(currentMs + exprireMilliSeconds);
