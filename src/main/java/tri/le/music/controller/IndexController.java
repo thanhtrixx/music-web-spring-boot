@@ -3,7 +3,6 @@ package tri.le.music.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tri.le.music.entity.SongEntity;
@@ -23,7 +22,6 @@ public class IndexController {
     @Autowired
     SongRepository songRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/songs")
     public List<SongEntity> index(String name) {
         List<SongEntity> songEntity = songRepository.findAll();

@@ -18,7 +18,6 @@ import tri.le.music.service.UtilService;
  * Created by TriLe on 2016-04-03.
  */
 @Configuration
-//@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = false)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -35,12 +34,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().anyRequest().authenticated().and()
-
-//                .x509().and()
-
                 .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling().authenticationEntryPoint(authenticationTokenEntryPoint);
+                .exceptionHandling().authenticationEntryPoint(authenticationTokenEntryPoint).and()
+
+                .csrf().ignoringAntMatchers("/api/**").and()
+
+                .authorizeRequests().antMatchers("/api/**").access("hasAuthority('ADMIN')").and()
+                .authorizeRequests().anyRequest().authenticated();
     }
 
     @Override

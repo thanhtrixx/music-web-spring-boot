@@ -57,7 +57,7 @@ public class App {
 
             // save token
             tokenRepositoty.save(TokenEntity.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
-            tokenRepositoty.save(TokenEntity.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
+            tokenRepositoty.save(TokenEntity.getInstance(user, 365 * 24 * 60 * 60 * 1000));
         };
     }
 }

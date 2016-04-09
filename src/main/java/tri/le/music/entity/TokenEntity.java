@@ -1,5 +1,7 @@
 package tri.le.music.entity;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import tri.le.music.util.TokenUtil;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import java.sql.Timestamp;
  */
 @Entity
 public class TokenEntity {
+    private static final Logger log = LogManager.getLogger(TokenEntity.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +36,7 @@ public class TokenEntity {
         long currentMs = System.currentTimeMillis();
         token.createTime = new Timestamp(currentMs);
         token.exprireTime = new Timestamp(currentMs + exprireMilliSeconds);
-
+        log.debug("Create token. Owner: {}, token: {}, role: {}", owner.getUsername(), token.token, owner.getRoles());
         return token;
     }
 
