@@ -20,6 +20,7 @@ public class App {
 
     private static final Logger log = LogManager.getLogger(App.class);
 
+
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

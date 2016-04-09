@@ -1,5 +1,3 @@
-debug: true
-
 spring:
   jackson:
     serialization-inclusion: non_null
@@ -10,6 +8,26 @@ spring:
 
   datasource:
     url: jdbc:h2:mem:music
+
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  hateoas:
+    use-hal-as-default-json-media-type: true
+
+  mandatory-file-encoding: UTF-8
+
+security:
+  sessions: stateless
+  basic:
+    enabled: false
+
+logging:
+  level:
+    root: info
 
 app:
   hash-algorithm: SHA-256

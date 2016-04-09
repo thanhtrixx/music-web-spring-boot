@@ -20,7 +20,6 @@ public class IndexController {
 
     private static final Logger log = LogManager.getLogger(IndexController.class);
 
-
     @Autowired
     SongRepository songRepository;
 
