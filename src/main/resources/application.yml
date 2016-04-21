@@ -28,6 +28,7 @@ security:
 logging:
   level:
     root: info
+    org.hibernate.SQL: debug
 
 app:
   hash-algorithm: SHA-256

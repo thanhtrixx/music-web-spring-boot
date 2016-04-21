@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by thanh on 2016-04-02.
+ * Created by TriLe on 2016-04-02.
  */
 public class SecurityUtil {
 

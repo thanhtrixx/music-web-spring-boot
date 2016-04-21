@@ -50,14 +50,14 @@ public class App {
             songRepository.save(new SongEntity("Anh Sẽ Tốt Mà"));
 
             // save users
-            UserEntity user = UserEntity.getInstance("user1", "user1", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER");
-            UserEntity admin = UserEntity.getInstance("admin", "admin", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER;ADMIN");
+            UserEntity user = UserEntity.Companion.getInstance("user1", "user1", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER");
+            UserEntity admin = UserEntity.Companion.getInstance("admin", "admin", "6db587510d5f7b2cfde0fbff68314c89a0dcd8339b40c8434a101aaac9a89bd0", "USER;ADMIN");
             userRepository.save(user);
             userRepository.save(admin);
 
             // save token
-            tokenRepositoty.save(TokenEntity.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
-            tokenRepositoty.save(TokenEntity.getInstance(user, 365 * 24 * 60 * 60 * 1000));
+            tokenRepositoty.save(TokenEntity.Companion.getInstance(admin, 365 * 24 * 60 * 60 * 1000));
+            tokenRepositoty.save(TokenEntity.Companion.getInstance(user, 365 * 24 * 60 * 60 * 1000));
         };
     }
 }

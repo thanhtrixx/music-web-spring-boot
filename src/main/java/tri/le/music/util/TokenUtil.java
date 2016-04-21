@@ -3,7 +3,7 @@ package tri.le.music.util;
 import java.util.UUID;
 
 /**
- * Created by thanh on 2016-04-02.
+ * Created by TriLe on 2016-04-02.
  */
 public class TokenUtil {
 

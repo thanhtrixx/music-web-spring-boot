@@ -6,7 +6,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by thanh on 2016-04-07.
+ * Created by TriLe on 2016-04-07.
  */
 @Component
 public class AuthenticationTokenProvider implements AuthenticationProvider {

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by thanh on 2016-04-03.
+ * Created by TriLe on 2016-04-03.
  */
 @Service
 public class AuthService implements UserDetailsService {

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import tri.le.music.util.SecurityUtil;
 
 /**
- * Created by thanh on 2016-04-02.
+ * Created by TriLe on 2016-04-02.
  */
 @Service
 public class UtilService {
