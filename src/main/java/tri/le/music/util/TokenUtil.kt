@@ -8,15 +8,9 @@ import java.util.*
 /**
  * Created by TriLe on 2016-04-22.
  */
-private val TOKEN_SIZE = 36
 private val log = LogManager.getLogger("TokenUtil")
+private val TOKEN_SIZE = 36
 
-public fun generateToke(): String {
-    return UUID.randomUUID().toString()
-}
+fun generateToke() = UUID.randomUUID().toString()
 
-public fun validate(token: String): Boolean {
-    if (token.length == TOKEN_SIZE) return true
-
-    return false
-}
+fun validate(token: String) = token.length == TOKEN_SIZE

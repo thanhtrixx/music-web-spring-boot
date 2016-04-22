@@ -31,7 +31,7 @@ fun hashPass(password: String, hashAlgorithm: String): String {
 
     val hexString = StringBuilder()
     for (byte in byteData) {
-        hexString.append(Integer.toString(byte + 0x100, 16).substring(1))
+        hexString.append(Integer.toString(byte + 0x100, 16))
     }
 
     val hashPass = hexString.toString()

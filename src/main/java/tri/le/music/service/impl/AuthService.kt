@@ -26,19 +26,19 @@ class AuthService : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails? {
         val user = userRepository.findByUsernameOrEmail(username) ?: return null
 
-        return getUserDetails(user)
+        return getUserRoles(user)
     }
 
     fun loadUserByToken(token: String): UserDetails? {
         val owner = tokenRepositoty.findByToken(token)?.owner ?: return null
 
-        return getUserDetails(owner)
+        return getUserRoles(owner)
     }
 
-    fun getUserDetails(user: UserEntity): UserDetails {
-        val roles = user.roles.split(";")
+    fun getUserRoles(user: UserEntity): UserDetails {
+        val roles = user.roles.split(";").distinct()
         val authorities = roles.map { r -> SimpleGrantedAuthority(r) }
 
-        return UserLoginDTO(user.username, authorities, user.hashPass)
+        return UserLoginDTO(user.username, user.hashPass, authorities)
     }
 }

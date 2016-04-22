@@ -25,7 +25,6 @@ public class IndexController {
     @RequestMapping(path = "/songs")
     public List<SongEntity> index(String name) {
         List<SongEntity> songEntity = songRepository.findAll();
-        log.info("Song info {}", songEntity);
         return songEntity;
     }
 }

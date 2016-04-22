@@ -25,8 +25,8 @@ data class SongListEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null
-}
 
-enum class SongListType {
-    Album, Playlist
+    enum class SongListType {
+        Album, Playlist
+    }
 }

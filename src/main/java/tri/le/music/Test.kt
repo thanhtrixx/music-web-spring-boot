@@ -10,5 +10,5 @@ fun main(args: Array<String>) {
     val user = UserEntity("a", "b", "c", "1;2;3;4;5;6")
 
     val auth = AuthService()
-    print(auth.getUserDetails(user))
+    print(auth.getUserRoles(user))
 }

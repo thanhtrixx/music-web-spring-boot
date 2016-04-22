@@ -24,8 +24,8 @@ class HumanEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0
-}
 
-enum class HumanType {
-    Composer, Singer
+    enum class HumanType {
+        Composer, Singer
+    }
 }
