@@ -20,9 +20,9 @@
     </parent>
 
     <properties>
-        <kotlin.version>1.0.1-2</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <kotlin.version>1.0.1-2</kotlin.version>
     </properties>
 
     <dependencies>
@@ -53,8 +53,8 @@
         <!--<artifactId>spring-boot-starter-redis</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-data-rest</artifactId>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-rest</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -138,6 +138,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <!-- Prevents an endPosTable exception during compilation -->
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>

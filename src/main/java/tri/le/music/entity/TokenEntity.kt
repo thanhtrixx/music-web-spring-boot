@@ -1,7 +1,7 @@
 package tri.le.music.entity
 
 import org.apache.logging.log4j.LogManager
-import tri.le.music.util.TokenUtil
+import tri.le.music.util.generateToke
 import java.sql.Timestamp
 import javax.persistence.*
 
@@ -28,7 +28,7 @@ class TokenEntity(
         private val log = LogManager.getLogger(TokenEntity::class.java)
         fun getInstance(owner: UserEntity, exprireMilliSeconds: Int): TokenEntity {
             val token = TokenEntity(owner)
-            token.token = TokenUtil.generateToke()
+            token.token = generateToke()
             val currentMs = System.currentTimeMillis()
             token.createdTime = Timestamp(currentMs)
             token.exprireTime = Timestamp(currentMs + exprireMilliSeconds)

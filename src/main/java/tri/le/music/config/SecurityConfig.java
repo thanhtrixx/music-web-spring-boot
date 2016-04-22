@@ -11,8 +11,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import tri.le.music.security.AuthenticationTokenEntryPoint;
 import tri.le.music.security.AuthenticationTokenFilter;
 import tri.le.music.security.AuthenticationTokenProvider;
-import tri.le.music.service.AuthService;
 import tri.le.music.service.UtilService;
+import tri.le.music.service.impl.AuthService;
 
 /**
  * Created by TriLe on 2016-04-03.
